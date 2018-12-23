@@ -16,12 +16,13 @@ def unpack_paren(ntup_list):
         return f"{(len(ntup_list)-1)*'('}" + f"{', '.join(str(e) for e in ntup_list[:2])}), " + f'{"), ".join(str(e) for e in ntup_list[2:-1])}' + f"), {ntup_list[-1]})"
 
 def unpack_curly(ntup_list):
-	if len(ntup_list) == 1:
-		print('Expression undefined, returning "None":')	
-	elif len(ntup_list) == 2:
-		return '{' + '{' + str(ntup_list[0]) + '}' + ',' + '{' + str(ntup_list[0]) + ',' + str(ntup_list[1]) + '}' + '}'
-	else:
-		return '{' + str(unpack_curly(ntup_list[:len(ntup_list)-1])) + ',' + '{' + str(unpack_curly(ntup_list[:len(ntup_list)-1])) + ',' + str(ntup_list[len(ntup_list)-1:][0]) + '}' + '}'
+    if len(ntup_list) <= 1:
+        ans = 'Expression undefined...'
+    elif len(ntup_list) == 2:
+        ans = '{' + '{' + str(ntup_list[0]) + '}' + ',' + '{' + str(ntup_list[0]) + ',' + str(ntup_list[1]) + '}' + '}'
+    else:
+        ans = '{' + str(unpack_curly(ntup_list[:len(ntup_list)-1])) + ',' + '{' + str(unpack_curly(ntup_list[:len(ntup_list)-1])) + ',' + str(ntup_list[len(ntup_list)-1:][0]) + '}' + '}'
+    return ans
 
 
 if __name__ == "__main__":
