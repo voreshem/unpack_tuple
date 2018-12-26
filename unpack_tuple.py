@@ -13,7 +13,7 @@ def unpack_paren(ntup_list):
         return f"{(len(ntup_list)-1)*'('}{', '.join(str(e) for e in ntup_list)})"
 
     else:
-        return f"{(len(ntup_list)-1)*'('}" + f"{', '.join(str(e) for e in ntup_list[:2])}), " + f'{"), ".join(str(e) for e in ntup_list[2:-1])}' + f"), {ntup_list[-1]})"
+        return f"{(len(ntup_list)-1)*'('}" + f"{', '.join(str(e) for e in ntup_list[:2])}), " + f'{"), ".join(str(e) for e in ntup_list[2:])}' + ")"
 
 def unpack_curly(ntup_list):
     if len(ntup_list) <= 1:
