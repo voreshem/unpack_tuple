@@ -26,10 +26,16 @@ def unpack_curly(ntup_list):
 
 
 if __name__ == "__main__":
-    ntup_list = input("\n\nEnter the n-tuple in the following format:\n(x1,x2,...,xn)\nWITH parentheses & NO spaces!\n\n")[1:-1].split(',')
+    ntup_list = input("\n\nEnter the n-tuple in the following format:\n(x₁,x₂,...,xn)\nWITH parentheses & NO spaces!\n\n")[1:-1].split(',')
 
     print("\n")
     print(unpack_paren(ntup_list))
     print("\n")
+
+    '''
+    if ntup_list[0] == ntup_list[1]:
+        ntup_list[:2] = list(set(ntup_list[:2]))
+    '''
+
     print(unpack_curly(ntup_list))
     print("\n")
